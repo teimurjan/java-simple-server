@@ -15,26 +15,8 @@ public class Settings {
                 "Connection: close\r\n\r\n";
     }
 
-    public HashMap<String, String> getIndexRoute() {
-        final HashMap<String, String> route = new HashMap<String, String>();
-        route.put("method", "GET");
-        route.put("path", "/");
-        route.put("route", "getIndex");
-        return route;
-    }
+    public static final Route[] routes = {
+            new Route("GET", "/", "getIndex"),
+            new Route("GET", "/about", "getAbout")};
 
-    public HashMap<String, String> getAboutRoute() {
-        final HashMap<String, String> route = new HashMap<String, String>();
-        route.put("method", "GET");
-        route.put("path", "/about");
-        route.put("route", "getAbout");
-        return route;
-    }
-
-    public ArrayList<HashMap<String, String>> getRoutes() {
-        final ArrayList<HashMap<String, String>> routes = new ArrayList<HashMap<String, String>>();
-        routes.add(this.getIndexRoute());
-        routes.add(this.getAboutRoute());
-        return routes;
-    }
 }

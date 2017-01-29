@@ -3,17 +3,17 @@ import java.util.HashMap;
 
 public class Router {
 
-    private ArrayList<HashMap<String, String>> routes;
+    private Route[] routes;
 
-    public Router(ArrayList<HashMap<String, String>> routes){
+    public Router(Route[] routes){
         this.routes = routes;
     }
 
     public String getRoute(Request request) {
-        for (HashMap<String, String> route : routes) {
-            if (route.get("method").equals(request.getMethod()) &&
-                    route.get("path").equals(request.getPath())) {
-                return route.get("route");
+        for (Route route : routes) {
+            if (route.getMethod().equals(request.getMethod()) &&
+                    route.getPath().equals(request.getPath())) {
+                return route.getController();
             }
         }
         return "get404Error";

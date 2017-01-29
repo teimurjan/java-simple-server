@@ -45,10 +45,9 @@ public class SocketProcessor implements Runnable{
 
     private String getResponse(Request request) throws NoSuchMethodException{
         String response = "";
-        Router router = new Router(this.settings.getRoutes());
+        Router router = new Router(this.settings.routes);
         Controllers controllers = new Controllers();
         Class controllersClass = controllers.getClass();
-
         Method method = controllersClass.getDeclaredMethod(router.getRoute(request));
 
         try {
