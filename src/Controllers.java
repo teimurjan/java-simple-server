@@ -23,11 +23,11 @@ public class Controllers {
     }
 
     public String getFileByPath(String path) throws IOException{
-        FileReader fr=new FileReader(path);
-        BufferedReader br= new BufferedReader(fr);
+        FileReader fileReader=new FileReader(path);
+        BufferedReader reader= new BufferedReader(fileReader);
         StringBuilder content=new StringBuilder(1024);
         String s;
-        while((s=br.readLine())!=null)
+        while((s=reader.readLine())!=null)
         {
             content.append(s);
         }
